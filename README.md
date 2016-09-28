@@ -1,4 +1,4 @@
 #Linkshot
-**Service of short link**
+**Service of short links**
 
 
