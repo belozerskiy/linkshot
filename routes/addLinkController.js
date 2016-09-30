@@ -5,13 +5,16 @@ const Link = require('../models/Link');
 //json messaging - add, find, err
 
 module.exports = function (req, res) {
-    if (req.body.link) {
-        Link.findOne({ link: req.body.link }, (err, link) => {
-            if (err) return err;
+    if (req.body.url) {
+        Link.findOne({ url: req.body.url }, (err, link) => {
+            if (err){
+                console.log(err)
+                res.json({ status: 'err', msg: 'smth going wrong...' })
+            }
             if (link) {
                 res.json({ status: 'find', msg: 'Link finded', link: link });
             } else {
-                let newLink = new Link(req.body);
+                var newLink = new Link(req.body);
                 newLink.save((err) => {
                     if (err) return err;
                     res.json({ status: 'add', msg: 'Link added', link: newLink });
