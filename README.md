@@ -1,4 +1,4 @@
 #Linkshot
-**Service of short links**
+**Сервис коротких ссылок**
 
 
